@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stacked Boxes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body, html {
+        height: 100%;
+        margin: 0;
+      }
+
+      .outer-box {
+        height: 500px;
+        width: 700px;
+        
+        background-color: rgba(94, 64, 122, 0.461);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-radius: 20px;
+      }
+
+      .middle-box {
+        height: 400px;
+        width: 600px;
+        background-color: rgba(120, 52, 120, 0.352);
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        border-radius: 5px;
+                border-radius: 20px;
+
+      }
+
+      .inner-box {
+        height: 350px;
+        width: 550px;
+        background-color: rgba(255, 255, 255, 0.945);
+        
+        top: 150px;
+        left: 150px;
+        border-radius: 5px;
+                border-radius: 20px;
+
+      }
+      h2{
+        text-align: center;
+      }
+     
+    </style>
+  </head>
+  <body class="d-flex justify-content-center align-items-center">
+    <div class="outer-box">
+      <div class="middle-box"></div>
+      <div class="inner-box"><h2>Tip Calculator</h2>
+    Enter the amount and tip percent to calculate the tip.
+    <h3>Bill amount.</h3>
+    <div id="bill" class="form-floating mb-3">
+  <input type="number" class="form-control" id="floatingInput" >
+  <label for="floatingInput"></label>
+</div>
+<div class="form-floating"><h3>Tip percentage</h3>
+  <input type="number" class="form-control" id="floatingPassword">
+  <label for="floatingPassword"></label>
+  <button id="button" type="button" class="btn btn-success " style="width:550px;">Calculate
+  </button>
+  
+  <p  style="margin-left: 10px;" > Total = <span id="totalamount"> </span> 
+  </p>
+
+</div>
+
+</div>
+    </div>
+
+  </body>
+  
+    <script>
+    const button=document.getElementById('button')
+    button.addEventListener('click',function(){ 
+    const billvalue= parseFloat (document.getElementById('floatingInput').value);
+        const tipvalue= parseFloat(document.getElementById('floatingPassword').value);
+
+        if(isNaN(billvalue)||isNaN(tipvalue)){
+          alert('Kindly enter correct amount');
+          return ;
+        }
+          const tipcal=(billvalue*tipvalue)/100;
+    const Total=billvalue+tipcal;
+      document.getElementById('totalamount').textContent = `$${Total.toFixed(2)}`;
+
+    } );
+  
+
+    
+
+ 
+
+
+
+    </script>
+</html>
